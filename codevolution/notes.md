@@ -24,3 +24,26 @@ Once the tests have been written, you then write the code to ensure the tests pa
 ## 4. Code coverage
 
 add text toturial -14 - https://www.youtube.com/watch?v=W-dc5fpxUVs&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=14
+
+## 5. Assertions
+
+- When writing tests, we often need to check that values meet certain conditions.
+- Assertions decide if a test passes or fails
+  macthers reference link - https://jestjs.io/docs/using-matchers
+  jest dom link - https://github.com/testing-library/jest-dom
+  - expect
+  - expect(value) - the arguement should be the value that your code produces
+  - typically, you will use expect along with a "matcher" function to assert something about a value
+
+## 6. What to test ?
+
+- Test component renders
+- Test component renders with props
+- Test component renders in different states
+- Test component reacts to events
+
+  ### What not to test ?
+
+  - Implementation details
+  - Third party code ex. MUI components
+  - Code that is not important from a user point of view ex. utility func. to show date in prettify manner
