@@ -47,3 +47,17 @@ add text toturial -14 - https://www.youtube.com/watch?v=W-dc5fpxUVs&list=PLC3y8-
   - Implementation details
   - Third party code ex. MUI components
   - Code that is not important from a user point of view ex. utility func. to show date in prettify manner
+
+## 7. RTL Queries
+
+- Every test we write generally invol
+  add text - https://www.youtube.com/watch?v=GWRIv6kHZqk&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=17
+
+## 8. getByRole
+
+add text - https://www.youtube.com/watch?v=Veaql3noyyo&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=18
+
+- Role of HTML elements [Reference][https://www.w3.org/TR/html-aria/#docconformance]
+  - input -> textbox
+  - select -> combobox
+  - checkbox -> checkbox
