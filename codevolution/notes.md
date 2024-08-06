@@ -58,6 +58,18 @@ add text toturial -14 - https://www.youtube.com/watch?v=W-dc5fpxUVs&list=PLC3y8-
 add text - https://www.youtube.com/watch?v=Veaql3noyyo&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=18
 
 - Role of HTML elements [Reference][https://www.w3.org/TR/html-aria/#docconformance]
+
   - input -> textbox
   - select -> combobox
   - checkbox -> checkbox
+
+- getByRole Options
+  1. name -> the accesible name is for simple cases equal to
+  - the label of a form element
+  - the text content of a button or
+  - the value of the aria-label attribute
+  2. level
+  3. hidden
+  4. selected
+  5. checked
+  6. pressed
