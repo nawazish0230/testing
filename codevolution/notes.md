@@ -53,7 +53,9 @@ add text toturial -14 - https://www.youtube.com/watch?v=W-dc5fpxUVs&list=PLC3y8-
 - Every test we write generally invol
   add text - https://www.youtube.com/watch?v=GWRIv6kHZqk&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=17
 
-## 8. getByRole
+## 9. Query Methods
+
+### 9.1 getByRole
 
 add text - https://www.youtube.com/watch?v=Veaql3noyyo&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=18
 
@@ -73,3 +75,51 @@ add text - https://www.youtube.com/watch?v=Veaql3noyyo&list=PLC3y8-rFHvwirqe1KHF
   4. selected
   5. checked
   6. pressed
+
+### 9.2 getByLabelText
+
+- it will search for the label that matches the given text, then find the element associated with that label
+
+### 9.3 getByPlaceholderText
+
+- it will search for all elements with a placeholder attribute and find one that matches the given text
+
+### 9.4 getByText
+
+- it will search for all elements that have a text node with textContent matching the given text
+
+### 9.5 getByDisplayValue
+
+- It will return the input, textarea, or select element that has the matching diplay value
+
+### 9.6 getByAltText
+
+- it will return the element that has the given alt text
+- this method only supports elements which accept an alt attribute like <img/>, <input/>, <area> or custom HTML elements
+
+### 9.7 getByTitle
+
+- It returns the element that has the matching title atrribute
+
+### 9.8 getByTestId
+
+- It returns the element that has the matching data-testid attribute
+
+### When to use what | Priority order for queries
+
+- Your test should resemble how users interact with your code (component, page etc) as much as possible
+
+1. getByRole
+2. getByLabelText
+3. getByPlaceholderText
+4. getByText
+5. getByDisplayValue
+6. getByAltText
+7. getByTitle
+8. getByTestId
+
+## 10. Query Multiple Elements
+
+getAllByRole
+
+add notes link [https://www.youtube.com/watch?v=YgYx8Y6Vbck&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=28]

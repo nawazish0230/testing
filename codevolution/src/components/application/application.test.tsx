@@ -16,9 +16,34 @@ describe("Application", () => {
     });
     expect(sectionElement).toBeInTheDocument();
 
-    // as we have input & textarea and both role is textbox so picking it by name
+    const paragraphElement = screen.getByText("All fields are mandatory");
+    expect(paragraphElement).toBeInTheDocument();
+
+    const imageElement = screen.getByAltText("a person with a laptop");
+    expect(imageElement).toBeInTheDocument();
+
+    const closeElement = screen.getByTitle("close");
+    expect(closeElement).toBeInTheDocument();
+
+    const customElement = screen.getByTestId("custom-element");
+    expect(customElement).toBeInTheDocument();
+
+    // as we have input & textarea and both role is textbox so picking it by using name
+
+    // used multiple way to test same element
     const nameElement = screen.getByRole("textbox", { name: "Name" });
     expect(nameElement).toBeInTheDocument();
+
+    const nameElement2 = screen.getByLabelText("Name");
+    expect(nameElement2).toBeInTheDocument();
+
+    const nameElement3 = screen.getByPlaceholderText("Fullname");
+    expect(nameElement3).toBeInTheDocument();
+
+    const nameElement4 = screen.getByDisplayValue("Vishwas");
+    expect(nameElement4).toBeInTheDocument();
+
+    // *****
 
     const bioElement = screen.getByRole("textbox", { name: "Bio" });
     expect(bioElement).toBeInTheDocument();
@@ -28,6 +53,10 @@ describe("Application", () => {
 
     const termElement = screen.getByRole("checkbox");
     expect(termElement).toBeInTheDocument();
+    const termElement2 = screen.getByLabelText(
+      "I agree to the terms and conditions"
+    );
+    expect(termElement2).toBeInTheDocument();
 
     const submitButtonElement = screen.getByRole("button");
     expect(submitButtonElement).toBeInTheDocument();
