@@ -51,13 +51,13 @@ add text toturial -14 - https://www.youtube.com/watch?v=W-dc5fpxUVs&list=PLC3y8-
 ## 7. RTL Queries
 
 - Every test we write generally invol
-  add text - https://www.youtube.com/watch?v=GWRIv6kHZqk&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=17
+  add notes - [https://www.youtube.com/watch?v=GWRIv6kHZqk&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=17]
 
 ## 9. Query Methods
 
 ### 9.1 getByRole
 
-add text - https://www.youtube.com/watch?v=Veaql3noyyo&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=18
+add notes - [https://www.youtube.com/watch?v=Veaql3noyyo&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=18]
 
 - Role of HTML elements [Reference][https://www.w3.org/TR/html-aria/#docconformance]
 
@@ -122,4 +122,54 @@ add text - https://www.youtube.com/watch?v=Veaql3noyyo&list=PLC3y8-rFHvwirqe1KHF
 
 getAllByRole
 
-add notes link [https://www.youtube.com/watch?v=YgYx8Y6Vbck&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=28]
+- RTL getAllBy Queries
+  - find multiple elements in the DOM
+  - getAllBy returns an array of all matching nodes for a query, and throws an error if no elements match
+
+## 11. queryBy and queryAllBy
+
+- queryBy
+
+  - returns the matching node for a query, and return null if no elements match
+  - useful for asserting an element that is not present
+  - throws an error if more than one match is found
+
+- queryAllBy
+
+  - returns an array of all matching nodes for a query, and return an empty array if no elements match
+
+- getBy and getAllBy class of queries to assert if elements are present in the DOM
+- queryBy and queryAllBy class of queries to assert if elements are not present in the DOM
+
+_Appearance /Disappearance_
+
+- What if elements are not present in the DOM to begin but make thier way into the DOM after some time ?
+- for ex, data that is fetched from a server will be rendered only after a few milliseconds
+
+## 11. findBy and findAllBy
+
+- findBy
+
+  - returns a promise which resolves when an element is found which matches the given query
+  - the promise is rejected if not element is found or if more than one element is found after a default timeout of 1000ms
+
+- findAllBy
+
+  - returns a promise which resolves to an array of elements when any elements are found which match the given query
+  - then promise is rejected if no elements are found after a default timeout of 1000ms
+
+## Manual Queries
+
+- we can use the regular querySelector DOM API to find elements
+
+```
+const {container} = render(<MyComponent>)
+const foo = container.querySelector('[data-foo="bar"]')
+```
+
+- but its not recommended to use as it not visible to user, so better use above query method getBy, queryBy, findBy
+
+## Debugging
+
+- screen.debug() -> to visualized the formatted state of the dome tree at any point during the test
+- logRoles(view.container) -> to print out the list of all aria-label which is present in the dom-tree

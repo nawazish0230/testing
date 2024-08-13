@@ -16,6 +16,11 @@ describe("Application", () => {
     });
     expect(sectionElement).toBeInTheDocument();
 
+    const paragraphStartElement = screen.getByText((content) =>
+      content.startsWith("All")
+    );
+    expect(paragraphStartElement).toBeInTheDocument();
+
     const paragraphElement = screen.getByText("All fields are mandatory");
     expect(paragraphElement).toBeInTheDocument();
 
