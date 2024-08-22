@@ -50,14 +50,51 @@ add text toturial -14 - https://www.youtube.com/watch?v=W-dc5fpxUVs&list=PLC3y8-
 
 ## 7. RTL Queries
 
-- Every test we write generally invol
-  add notes - [https://www.youtube.com/watch?v=GWRIv6kHZqk&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=17]
+- Every test we write generally involves the following basic steps
+
+  - Render the component
+  - find an element rendered by the component
+  - Assert against the element found in step 2 which will pass or fail the test
+
+  To render the component, we use the render method from RTL.
+  For assertion, we use expect passing in a value and combine it with a matcher function from jest or jest-dom
+
+- Queries are the methods that Testing Library provides to find elements on the page
+
+  - to find a single element on the page, we have
+
+    - getBy
+    - queryBy
+    - findBy
+
+  - to find multiple elements on the page, we have
+    - getAllBy
+    - queryAllBy
+    - findAllBy
+
+  The suffix can be one of Role, LabelText, PlaceHolderText, Text, DisplayValue, AltText, Title and finally TestId
+
+  _getBy.. queries_
+
+  - getBy.. class of queries return the matching node for a query, and throw a descriptive error if no elements match or if more than one match is found.
 
 ## 9. Query Methods
 
 ### 9.1 getByRole
 
-add notes - [https://www.youtube.com/watch?v=Veaql3noyyo&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=18]
+- **getBy..** queries\*
+
+  - getBy.. class of queries return the matching node for a query, and throw a descriptive error if no elements match or if more than one match is found.
+  - The suffix can be one of Role, LabelText, PlaceHolderText, Text, DisplayValue, AltText, Title and finally TestId
+
+- **getByRole**
+
+  - getByRole queries for elements with the given role.
+  - Role refers to the ARIA(Accessible Rich Internet Applications) role which provides semantic meaning to content to ensure people using assistive technologies are able to use them
+  - By default, many semantic elements in HTML have a role
+  - Button element has a button role, anchor element has a link role, h1 to h6 elements have a heading role, checkboxes have a checkbox role, radio buttons have a radio role and so on.
+  - If you're working with elements that do not have a default role or if you want to specify a different role, the role attribute can be used to add the desired role
+  - To use an anchor element as a button in the navbar, you can add role="button"
 
 - Role of HTML elements [Reference][https://www.w3.org/TR/html-aria/#docconformance]
 
@@ -158,7 +195,7 @@ _Appearance /Disappearance_
   - returns a promise which resolves to an array of elements when any elements are found which match the given query
   - then promise is rejected if no elements are found after a default timeout of 1000ms
 
-## Manual Queries
+## 12. Manual Queries
 
 - we can use the regular querySelector DOM API to find elements
 
@@ -169,7 +206,43 @@ const foo = container.querySelector('[data-foo="bar"]')
 
 - but its not recommended to use as it not visible to user, so better use above query method getBy, queryBy, findBy
 
-## Debugging
+## 13. Debugging
 
 - screen.debug() -> to visualized the formatted state of the dome tree at any point during the test
 - logRoles(view.container) -> to print out the list of all aria-label which is present in the dom-tree
+
+## 14. User Interactions
+
+- User Interactions
+
+  - A click using a mouse or a keypress using a keyboard
+  - Software has to response to such interactions
+  - tests should ensure the interaction are handled as expected
+
+- user-event
+
+  - A companion library for Testing Library that simulates user interactions by dispatching the events that would happen if the interaction took place in a browser
+  - It is the recommended way to test user interaction with RTL
+
+- fireEvent vs user-event
+  - fireEvent is a method from RTL which is used to dispatch DOM events
+  - user-event simulates full interactions, which may fire multiple events and do additional checks along the way
+  - for example, we can dispatch the change event on an input field using fireEvent
+  - When a user types into a text box, the element has to be focused, and then keyboard and input events are fired and the selection and value on the element are manipulated as they type.
+  - user-event allows you to describe a user interaction instead of a concrete event. It adds visibility and intractablity checks along the way and manipulates the DOM just like a user interaction in the browser would. It factors in that the browser e.g wouldn't let a user click a hidden element or type in a disabled text box
+
+**Pointer Interactions**
+
+_Convenience APIs_
+
+- click()
+- dblClick()
+- tripleClick()
+- hover()
+- unhover()
+
+lower pointer apis list link [https://www.youtube.com/watch?v=pyKS3H2i7gk&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=37]
+
+## 15. Keyboard Interactions
+
+notes [https://www.youtube.com/watch?v=kqX14UyjhDM&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=37]
