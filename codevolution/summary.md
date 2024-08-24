@@ -10,3 +10,6 @@
 8. custom render function
 9. test custom react hooks
 10. act utility
+11. Mock functions with jest
+12. Mock HTTP requests with MSW
+13. Handle error responses with MSW
